@@ -1,20 +1,17 @@
 <?php
 
-require './../models/Db.php';
+require './../models/user.models.php';
 class UserController{
 
     function __construct(){
-        $db = new Db();
-        $this->db = $db->conn;
+        $this->user = new UserModel();
     }
     
     function getAll(){
-        $query = "SELECT * FROM admin";
-        $data = $this->db->query($query);
-        $rows = [];
-        foreach($data as $d){
-            $rows[] = $d;
-        }
-        return $rows;
+        $data = $this->user->get_all('admin');
+
+        return $data;
     }
 }
+
+?>

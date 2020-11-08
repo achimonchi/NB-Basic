@@ -3,6 +3,7 @@
 require './../config/db.php';
 
 class Db{
+
     function __construct(){
         $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if($this->conn->connect_error){
@@ -10,4 +11,14 @@ class Db{
             exit();
         }
     }    
+
+    function get($table)
+    {
+        $query = "SELECT * FROM $table";
+        $data = $this->conn->query($query);
+        foreach($data as $d){
+            $rows[] = $d;
+        }
+        return $rows;
+    }
 }
