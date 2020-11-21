@@ -15,4 +15,10 @@ class UserModel
         return $data;
     }
 
+    function insert_data($table, $data)
+    {
+        $query = "INSERT INTO $table (a_nama, a_username, a_password) VALUES('$data[a_nama]','$data[a_username]','$data[a_password]')";
+        return $this->db->insert($query);
+    }
+
 }

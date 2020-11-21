@@ -21,4 +21,11 @@ class Db{
         }
         return $rows;
     }
+
+    function insert($query)
+    {
+        $data = $this->conn->query($query);
+        // var_dump($query);
+        return $data;
+    }
 }
