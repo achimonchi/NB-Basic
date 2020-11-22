@@ -35,4 +35,11 @@ class UserModel
         return $update;
     }
 
+    function delete_data($table, $id)
+    {
+        $query = "DELETE FROM $table WHERE _id='$id'";
+        $delete = $this->db->delete($query);
+        return $delete;
+    }
+
 }

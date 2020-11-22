@@ -51,6 +51,17 @@ class UserController{
             // $data['update'] = $this->user->
         }
     }
+
+    function delete($id=""){
+        if($id !== ""){
+            $delete = $this->user->delete_data("admin", $id);
+            if($delete){
+                header("location:index.php");
+            } else {
+                echo "<script>alert('Gagal Ubah Data')</script>";
+            }
+        }
+    }
 }
 
 ?>

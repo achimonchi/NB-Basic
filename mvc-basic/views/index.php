@@ -15,8 +15,15 @@ $detail = [
 ];
 if(isset($_GET['id'])){
     $detail = $user->detail($_GET['id']);
-    if(isset($_POST['updateAdmin'])){
-        $update = $user->update();
+    if(isset($_GET['type'])){
+        $type = $_GET['type'];
+        if($type === "update"){
+            if(isset($_POST['updateAdmin'])){
+                $update = $user->update();
+            }
+        } else {
+            $delete = $user->delete($_GET['id']);
+        }
     }
 }
 ?>
@@ -90,8 +97,8 @@ if(isset($_GET['id'])){
                                 <div class="card-header">
                                     <?= $d['a_nama'] ?>
                                     <div class="float-right">
-                                        <a href="?id=<?= $d['_id'] ?>" class="btn btn-sm btn-success">Ubah</a>
-                                        <button class="btn btn-sm btn-danger">Hapus</button>
+                                        <a href="?id=<?= $d['_id'] ?>&type=update" class="btn btn-sm btn-success">Ubah</a>
+                                        <a href="?id=<?= $d['_id'] ?>&type=delete" class="btn btn-sm btn-danger">Hapus</a>
                                     </div>
                                 </div>
                             </div>

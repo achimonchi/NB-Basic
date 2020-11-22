@@ -44,4 +44,11 @@ class Db{
         // var_dump($query);
         return $data;
     }
+
+    function delete($query)
+    {
+        $data = $this->conn->query($query);
+        // var_dump($query);
+        return $data;
+    }
 }
