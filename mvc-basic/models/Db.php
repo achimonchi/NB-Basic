@@ -22,7 +22,23 @@ class Db{
         return $rows;
     }
 
+    function get_where($query)
+    {
+        $data = $this->conn->query($query);
+        foreach($data as $d){
+            $row= $d;
+        }
+        return $row;
+    }
+
     function insert($query)
+    {
+        $data = $this->conn->query($query);
+        // var_dump($query);
+        return $data;
+    }
+
+    function update($query)
     {
         $data = $this->conn->query($query);
         // var_dump($query);

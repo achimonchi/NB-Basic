@@ -27,6 +27,30 @@ class UserController{
             }
         }
     }
+
+    function detail($id){
+        $data['detail'] = $this->user->get_data_id("admin",$id);
+        return $data;
+    }
+
+    function update(){
+        if(isset($_POST['updateAdmin'])){
+            $id = $_POST['_id'];
+            $admin = [
+                "a_nama" => $_POST['namaUpdate'],
+                "a_username" => $_POST['usernameUpdate'],
+                "a_password" => $_POST['passwordUpdate']
+            ];
+
+            $update = $this->user->update_data("admin", $admin, $id);
+            if($update === true){
+                header("location:index.php");
+            } else {
+                echo "<script>alert('Gagal Ubah Data')</script>";
+            }
+            // $data['update'] = $this->user->
+        }
+    }
 }
 
 ?>
