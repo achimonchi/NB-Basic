@@ -1,6 +1,6 @@
 <?php
 
-require './../controllers/user.controller.php';
+require './../../controllers/user.controller.php';
 $user = new UserController();  
 $data = $user->getAll();
 
@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
     }
 }
 ?>
-<?php require('./templates/header.php') ?>
+<?php require('./../templates/header.php') ?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -64,15 +64,15 @@ if(isset($_GET['id'])){
                                     <input type="hidden" value="<?= $detail['detail']['_id'] ?>" name="_id">
                                     <div class="col-md-12">
                                         <label for="">Nama</label>
-                                        <input type="text" name="namaUpdate" required value="<?= $detail['detail']['a_nama'] ?>" class="form-control mb-3">
+                                        <input type="text" name="namaUpdate" value="<?= $detail['detail']['a_nama'] ?>" class="form-control mb-3">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Username</label>
-                                        <input class="form-control mb-3" required value="<?= $detail['detail']['a_username'] ?>" type="text" name="usernameUpdate" id="">
+                                        <input class="form-control mb-3" value="<?= $detail['detail']['a_username'] ?>" type="text" name="usernameUpdate" id="">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Password</label>
-                                        <input class="form-control mb-3" required type="password" name="passwordUpdate" id="">
+                                        <input class="form-control mb-3" type="password" name="passwordUpdate" id="">
                                     </div>
                                     <div class="col-md-12">
                                         <button type="submit" class="btn btn-success btn-block btn-sm" name="updateAdmin">Ubah Data</button>
@@ -109,4 +109,4 @@ if(isset($_GET['id'])){
     </div>
 </div>
 
-<?php require('./templates/footer.php') ?>
+<?php require('./../templates/footer.php') ?>

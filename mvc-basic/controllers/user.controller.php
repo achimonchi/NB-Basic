@@ -1,6 +1,6 @@
 <?php
 
-require './../models/user.models.php';
+require './../../models/user.models.php';
 class UserController{
 
     function __construct(){
@@ -48,7 +48,6 @@ class UserController{
             } else {
                 echo "<script>alert('Gagal Ubah Data')</script>";
             }
-            // $data['update'] = $this->user->
         }
     }
 

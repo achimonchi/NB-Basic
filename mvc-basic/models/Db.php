@@ -1,6 +1,6 @@
 <?php
 
-require './../config/db.php';
+require './../../config/db.php';
 
 class Db{
 
@@ -21,6 +21,16 @@ class Db{
         }
         return $rows;
     }
+
+    function get_query($query)
+    {
+        $data = $this->conn->query($query);
+        foreach($data as $d){
+            $row[]= $d;
+        }
+        return $row;
+    }
+
 
     function get_where($query)
     {

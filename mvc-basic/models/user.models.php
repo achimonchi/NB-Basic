@@ -1,6 +1,6 @@
 <?php
 
-require './../models/Db.php';
+require './../../models/Db.php';
 
 class UserModel
 {
