@@ -25,4 +25,11 @@ class TransaksiModel
     {
         return $this->db->get($table);
     }
+
+    function insert_data($table, $value)
+    {
+        $query = "INSERT INTO $table (fk_makanan, fk_meja, t_total, t_status) 
+        VALUES('$data[fk_makanan]','$data[fk_meja]','$data[t_total]','$data[t_status]')";
+        return $this->db->insert($query);
+    }
 }

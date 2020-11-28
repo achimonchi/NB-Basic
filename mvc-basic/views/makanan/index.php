@@ -31,7 +31,9 @@ $data = $makanan->getAll();
                             <tr>
                                 <th><?= $no++ ?></th>
                                 <td><?= $makanan['mk_nama'] ?></td>
-                                <td><?= $makanan['mk_harga'] ?></td>
+                                <td><?= intval($makanan['mk_harga']) > 20000 
+                                    ? "<label class='badge badge-danger'>".$makanan['mk_harga']."</label>" 
+                                    : "<label class='badge badge-primary'>".$makanan['mk_harga']."</label>" ?></td>
                                 <td><?= $makanan['mk_deskripsi'] ?></td>
                                 <td>
                                     <a href="<?= BASE_URL.'makanan/update.php?id='.$makanan['_id'] ?>" class="btn btn-sm btn-success">
