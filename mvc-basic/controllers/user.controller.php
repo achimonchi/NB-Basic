@@ -18,7 +18,7 @@ class UserController{
             $value = array(
                 "a_nama" => $_POST['nama'],
                 "a_username" => $_POST['username'],
-                "a_password" => $_POST['password'],
+                "a_password" => password_hash($_POST['password'], PASSWORD_BCRYPT),
             );
 
             $data['insert'] = $this->user->insert_data("admin", $value);
@@ -39,7 +39,7 @@ class UserController{
             $admin = [
                 "a_nama" => $_POST['namaUpdate'],
                 "a_username" => $_POST['usernameUpdate'],
-                "a_password" => $_POST['passwordUpdate']
+                "a_password" => password_hash($_POST['passwordUpdate'], PASSWORD_BCRYPT)
             ];
 
             $update = $this->user->update_data("admin", $admin, $id);

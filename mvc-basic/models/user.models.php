@@ -22,6 +22,13 @@ class UserModel
         return $data;
     }
 
+    function get_data_username($table, $username)
+    {
+        $query = "SELECT * FROM $table WHERE a_username='$username'";
+        $data = $this->db->get_where($query);
+        return $data;
+    }
+
     function insert_data($table, $data)
     {
         $query = "INSERT INTO $table (a_nama, a_username, a_password) VALUES('$data[a_nama]','$data[a_username]','$data[a_password]')";
